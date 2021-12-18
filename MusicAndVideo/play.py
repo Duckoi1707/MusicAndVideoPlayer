@@ -90,7 +90,7 @@ async def play(client, m: Message):
     if replied:
         if replied.audio or replied.voice:
             await m.delete()
-            huehue = await replied.reply("**🔄 Memproses**")
+            huehue = await replied.reply("**🔄 Xử lý**")
             dl = await replied.download()
             link = replied.link
             if replied.audio:
@@ -107,10 +107,10 @@ async def play(client, m: Message):
                 await m.reply_photo(
                     photo="https://telegra.ph/file/d6f92c979ad96b2031cba.png",
                     caption=f"""
-**#⃣ Lagu Di Antrian Ke {pos}
-🏷️ Judul: [{songname}]({link})
-💬 Chat ID: {chat_id}
-🎧 Atas Permintaan: {m.from_user.mention}**
+**# ⃣ Các bài hát trong hàng đợi  {pos}
+🏷️ Tên nhạc: [{songname}]({link})
+💬 ID trò chuyện: {chat_id}
+🎧 Yêu cầu bởi: {m.from_user.mention}**
 """,
                 )
             else:
