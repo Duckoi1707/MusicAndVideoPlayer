@@ -38,16 +38,16 @@ def isArgInt(message: Message) -> bool:
         return [False, 0]
 
 
-@Client.on_message(filters.command(["q", "quote"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["q", "rep"], prefixes=f"{HNDLR}"))
 @capture_err
 async def quotly_func(client, message: Message):
     if not message.reply_to_message:
-        return await message.reply_text("Membalas Pesan Untuk Mengutipnya !")
+        return await message.reply_text("Trả lời tin nhắn để trích dẫn nó !")
     if not message.reply_to_message.text:
         return await message.reply_text(
-            "Pesan yang Dibalas tidak memiliki teks apa pun! Tolong Balas Pesan Teks !"
+            "Trả lời Tin nhắn không có bất kỳ văn bản nào! Vui lòng trả lời tin nhắn văn bản !"
         )
-    m = await message.reply_text("`Membuat kutipan Pesan...`")
+    m = await message.reply_text("`Tạo một trích dẫn Tin nhắn...`")
     if len(message.command) < 2:
         messages = [message.reply_to_message]
 
@@ -70,7 +70,7 @@ async def quotly_func(client, message: Message):
             )
         else:
             if getArg(message) != "r":
-                return await m.edit("**SORRY**`")
+                return await m.edit("**LẤY LÀM TIẾC**`")
             reply_message = await client.get_messages(
                 message.chat.id,
                 message.reply_to_message.message_id,
@@ -78,7 +78,7 @@ async def quotly_func(client, message: Message):
             )
             messages = [reply_message]
     else:
-        await m.edit("**ERROR**")
+        await m.edit("**LỖI**")
         return
     try:
         sticker = await quotify(messages)
@@ -91,9 +91,9 @@ async def quotly_func(client, message: Message):
         sticker.close()
     except Exception as e:
         await m.edit(
-            "Ada yang salah saat mengutip pesan, bisa"
-            + " Kesalahan ini biasanya terjadi ketika ada "
-            + " pesan yang berisi sesuatu selain teks."
+            "Đã xảy ra lỗi khi trích dẫn tin nhắn, bạn có thể"
+            + " Lỗi này thường xảy ra khi có "
+            + " tin nhắn có chứa một cái gì đó không phải là văn bản."
         )
         e = format_exc()
         print(e)
