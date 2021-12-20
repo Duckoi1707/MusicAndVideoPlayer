@@ -40,7 +40,7 @@ async def ping(client, m: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await m_reply.edit(
-        f"<b>🏓 Tốc Độ</b> `{delta_ping * 100:.3f} ms` \n<b>⏳ AKTIF</b> - `{uptime}`"
+        f"<b>🏓 Tốc Độ</b> `{delta_ping * 100:.3f} ms` \n<b>⏳ Thời Gian Online Bot</b> - `{uptime}`"
     )
 
 
@@ -84,7 +84,7 @@ async def help(client, m: Message):
 • {HNDLR}skip - để bỏ qua các bài hát hoặc video
 • {HNDLR}end - để kết thúc phát lại</b>
 """
-    await m.reply(help)
+    await m.reply(HELP)
 
 
 @Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
