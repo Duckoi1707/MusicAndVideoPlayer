@@ -84,7 +84,7 @@ async def help(client, m: Message):
 • {HNDLR}skip - để bỏ qua các bài hát hoặc video
 • {HNDLR}end - để kết thúc phát lại</b>
 """
-    await m.reply(CỨU GIÚP)
+    await m.reply(help)
 
 
 @Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
