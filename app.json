@@ -7,8 +7,8 @@
         "MusicPlayer",
         "VideoPlayer"
     ],
-    "repository": "https://github.com/XtomiSN/MusicAndVideoPlayer",
-    "env": {
+    "kho lưu trữ" : "https://github.com/Duckoi1707/MusicAndVideoPlayer" ,
+    "env" : {
         "SESSION": {
             "description": "Pyrogram String Session",
             "required": true
