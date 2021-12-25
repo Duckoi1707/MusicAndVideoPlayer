@@ -201,7 +201,7 @@ async def vplay(client, m: Message):
     if replied:
         if replied.video or replied.document:
             await m.delete()
-            huehue = await replied.reply("**🔄 Memproses**")
+            huehue = await replied.reply("**🔄 Xử lý**")
             dl = await replied.download()
             link = replied.link
             if len(m.command) < 2:
