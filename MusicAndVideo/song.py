@@ -26,7 +26,7 @@ async def song(client, message: Message):
             "Sintaks Perintah Tidak Valid, Silakan Periksa Menu Bantuan Untuk Tahu Lebih Banyak!",
         )
         return
-    pablo = await client.send_message(message.chat.id, f"**🔎 Mencari** `{urlissed}`")
+    pablo = await client.send_message(message.chat.id, f"**🔎 Xử Lý** `{urlissed}`")
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
     mi = search.result()
     mio = mi["search_result"]
@@ -65,8 +65,8 @@ async def song(client, message: Message):
         return
     c_time = time.time()
     capy = f"""
-**🏷️ Nama Lagu:** [{thum}]({mo})
-**🎧 Permintaan Dari:** {message.from_user.mention}
+**🏷️ Tên bài hát:** [{thum}]({mo})
+**🎧 Yêu cầu từ:** {message.from_user.mention}
 """
     file_stark = f"{ytdl_data['id']}.mp3"
     await client.send_audio(
@@ -81,7 +81,7 @@ async def song(client, message: Message):
         progress_args=(
             pablo,
             c_time,
-            f"**📥 Download** `{urlissed}`",
+            f"**📥 Tải xuống** `{urlissed}`",
             file_stark,
         ),
     )
@@ -235,7 +235,7 @@ def time_to_seconds(time):
 async def vsong(client, message: Message):
     urlissed = get_text(message)
 
-    pablo = await client.send_message(message.chat.id, f"**🔎 Mencari** `{urlissed}`")
+    pablo = await client.send_message(message.chat.id, f"**🔎 Xử Lý** `{urlissed}`")
     if not urlissed:
         await pablo.edit(
             "Sintaks Perintah Tidak Valid, Silakan Periksa Menu Bantuan Untuk Tahu Lebih Banyak!"
@@ -274,8 +274,8 @@ async def vsong(client, message: Message):
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"""
-**🏷️ Nama Video:** [{thum}]({mo})
-**🎧 Permintaan Dari:** {message.from_user.mention}
+**🏷️ Tên video:** [{thum}]({mo})
+**🎧 Yêu Cầu Từ:** {message.from_user.mention}
 """
     await client.send_video(
         message.chat.id,
@@ -289,7 +289,7 @@ async def vsong(client, message: Message):
         progress_args=(
             pablo,
             c_time,
-            f"**📥 Download** `{urlissed}`",
+            f"**📥 Tải xuống** `{urlissed}`",
             file_stark,
         ),
     )
