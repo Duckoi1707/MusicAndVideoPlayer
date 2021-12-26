@@ -85,7 +85,16 @@ async def help(client, m: Message):
 • {HNDLR}end - để kết thúc phát lại</b>
 """
     await m.reply(HELP)
-
+    
+    @Client.on_message(filters.command(["admin"], prefixes=f"{HNDLR}"))
+async def admin(client, m: Message):
+    await m.delete()
+    ADMIN = f"""
+<b>👋 xin chào {m.from_user.mention}!
+OGGY Đẹp trai nhất group
+</b>
+"""
+    await m.reply(ADMIN)
 
 @Client.on_message(filters.command(["repo"], prefixes=f"{HNDLR}"))
 async def repo(client, m: Message):
